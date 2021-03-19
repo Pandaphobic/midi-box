@@ -1,0 +1,12 @@
+{
+  "files.associations": {
+    "*.js": "javascript",
+    "functional": "cpp",
+    "array": "cpp",
+    "string": "cpp",
+    "regex": "cpp",
+    "tuple": "cpp",
+    "type_traits": "cpp",
+    "utility": "cpp"
+  }
+}

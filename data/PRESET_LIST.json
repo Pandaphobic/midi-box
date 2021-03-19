@@ -1,0 +1,46 @@
+{
+  "button_1": {
+    "type": "PC",
+    "value": 1,
+    "channel": 1
+  },
+  "button_2": {
+    "type": "PC",
+    "value": 3,
+    "channel": 2
+  },
+  "button_3": {
+    "type": "PC",
+    "value": 5,
+    "channel": 3
+  },
+  "button_4": {
+    "type": "PC",
+    "value": 7,
+    "channel": 4
+  },
+  "button_5": {
+    "type": "CC",
+    "value": 11,
+    "channel": 5,
+    "velocity": 0
+  },
+  "button_6": {
+    "type": "CC",
+    "value": 12,
+    "channel": 6,
+    "velocity": 0
+  },
+  "button_7": {
+    "type": "CC",
+    "value": 13,
+    "channel": 7,
+    "velocity": 0
+  },
+  "button_8": {
+    "type": "CC",
+    "value": 14,
+    "channel": 8,
+    "velocity": 0
+  }
+}
