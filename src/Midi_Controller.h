@@ -41,6 +41,16 @@ public:
   void setVelocity(int velocity){Velocity = velocity;}
   void setChannel(int channel){Channel = channel;}
 
+  void Send(){
+    if(Type == "PC"){
+      MIDI.begin();
+      MIDI.sendProgramChange(Value, Channel);
+    } else if (Type == "CC"){
+      MIDI.begin();
+      MIDI.sendControlChange(Value, Velocity, Channel);
+    }
+  };
+
   // SENDERS
   void SendPC(){
     MIDI.begin();

@@ -1,3 +1,11 @@
+/* ----- Section Overview -----
+
+This sections should only be used when interacting with preset files driectly
+through Little FS. Think file writes / updates and things like that. We also
+initiate the presets into flash memory to make the midi message array from it.
+
+*/
+
 MidiPreset preset[16];
 
 void presetsLoaded(){
