@@ -8,16 +8,16 @@
 
 ### Road to Version 1.0.0
 
-(without modification)
-[+] Working
-[-] Incomplete
-[ ] Not started
+(without modification)<br/>
+[+] Working<br/>
+[-] Incomplete<br/>
+[ ] Not started<br/>
 
-_Feature List_
+_Feature List_<br/>
 
-[+] Send Midi Messages (PC CC)
-[+] Buttons working (16)
-[-] OLED Screen
-[-] Presets
-[ ] Preset Editor
-[ ] LED Indicators
+[+] Send Midi Messages (PC CC)<br/>
+[+] Buttons working (16)<br/>
+[-] OLED Screen<br/>
+[-] Presets<br/>
+[ ] Preset Editor<br/>
+[ ] LED Indicators<br/>
