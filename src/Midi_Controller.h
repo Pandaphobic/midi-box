@@ -61,5 +61,9 @@ public:
     MIDI.begin();
     MIDI.sendControlChange(Value, Velocity, Channel);
   };
+
+  void Test(){
+
+  };
 };
 

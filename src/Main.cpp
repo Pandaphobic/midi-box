@@ -3,6 +3,11 @@
 #include "ArduinoJson.h"
 #include "iostream"
 
+int currentTime;
+int duration;
+int startTime;
+bool timerOn = false;
+
 #include "Midi_Controller.h" // My Midi Controller
 #include "Preset_Controller.h" // My Preset Controller
 #include "OLED_Controller.h" // My OLED controller
@@ -13,15 +18,27 @@ void setup() {
   Serial.begin(9600);
 
   if(LoadPresets()){
-    Serial.print("Presets loaded to memory");
+    Serial.println("Presets loaded to memory");
   } else {
-    Serial.print("Could not load presets");
+    Serial.println("Could not load presets");
+  }
+  initButtons();
+}
+
+void screenTimer(){
+  if(timerOn){
+    currentTime = millis();
+  
+    if(currentTime - startTime >= duration){
+      display.clearDisplay();
+      timerOn = false;
+    };
   }
 }
 
-
-
 void loop() {
-  // put your main code here, to run repeatedly:
+
+  handleButtonPress();
+  screenTimer();
 
 }
