@@ -1,6 +1,6 @@
 /* ----- Section Overview -----
 
-This section is primarily to handle inputs from PCF8574 chips on the main board.
+This section handles inputs from PCF8574 ICs on the main board.
 The aim is that this be used as the primary controller. Trigger events from here,
 catch inputs, handle interupts - anything that connects human interaction to code
 must come through here.
@@ -121,32 +121,24 @@ void initButtons(){
   }
 };
 
-// void initButtons(){
 
-//   pinMode(ESP8266_INTERRUPTED_PIN, INPUT_PULLUP);
-//   attachInterrupt(digitalPinToInterrupt(ESP8266_INTERRUPTED_PIN), handleInterrupt, FALLING);
+// Expession Pedal Setup
+const int analogInPin = A0;  // ESP8266 Analog Pin ADC0 = A0
+float sensorValue = 0;       // value read from the pot
+int midiOutput = 0;          // Midi output is 0-127 
+double maxIn = 910.0;        // Maximum value from expression pedal
+double multiplier = 127.0 / maxIn;
 
-//   Serial.print("Init buttons 1-8 (pcf8574_1)...");
-//   if (pcf8574_1.begin()){
-//     // for(int i = 0; i >= 7; i++ ){
-//     //   if(i < 8){
-//     //     pcf8574_1.pinMode(i, INPUT);
-//     //   }
-//     // };
-//     Serial.println("OK");
-//   } else {
-//     Serial.println("KO");
-//   }
+void sendExpression(int note, int value, int channel){
+  MIDI.sendControlChange(note, midiOutput, channel);
+}
 
-//   Serial.print("Init buttons 9-16 (pcf8574_2)...");
-//   if (pcf8574_2.begin()){
-//     for(int i = 8; i >= 15; i++ ){
-//       if(i < 8){
-//         pcf8574_2.pinMode(i, INPUT);
-//       }
-//     };
-//     Serial.println("OK");
-//   } else {
-//     Serial.println("KO");
-//   }  
-// };
+void handleExpression(){
+  // read the analog in value
+  if(analogRead(analogInPin)- sensorValue > 3
+  || sensorValue - analogRead(analogInPin) > 3){
+     sensorValue = analogRead(analogInPin);
+     midiOutput = (int)(sensorValue * multiplier);
+  sendExpression(11, midiOutput, 2);
+  }
+}
